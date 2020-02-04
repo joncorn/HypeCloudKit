@@ -14,6 +14,8 @@
 		6D808B8923E9E03500554817 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D808B8723E9E03500554817 /* LaunchScreen.storyboard */; };
 		6D808B9A23E9E67400554817 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D808B9923E9E67400554817 /* CloudKit.framework */; };
 		6D808B9C23E9E6D200554817 /* Hype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D808B9B23E9E6D200554817 /* Hype.swift */; };
+		6D808B9E23E9EEB000554817 /* HypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D808B9D23E9EEB000554817 /* HypeController.swift */; };
+		6D808BA123E9EFFA00554817 /* HypeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D808BA023E9EFFA00554817 /* HypeError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		6D808B9723E9E64D00554817 /* HypeCloudKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HypeCloudKit.entitlements; sourceTree = "<group>"; };
 		6D808B9923E9E67400554817 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		6D808B9B23E9E6D200554817 /* Hype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hype.swift; sourceTree = "<group>"; };
+		6D808B9D23E9EEB000554817 /* HypeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypeController.swift; sourceTree = "<group>"; };
+		6D808BA023E9EFFA00554817 /* HypeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypeError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 				6D808B9223E9E39C00554817 /* Models */,
 				6D808B9323E9E3A400554817 /* Views */,
 				6D808B9423E9E3A900554817 /* Controllers */,
+				6D808B9F23E9EFD800554817 /* Helpers+Extensions */,
 				6D808B9023E9E38C00554817 /* Resources */,
 			);
 			path = HypeCloudKit;
@@ -125,6 +130,7 @@
 		6D808B9623E9E3B300554817 /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6D808B9D23E9EEB000554817 /* HypeController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -135,6 +141,14 @@
 				6D808B9923E9E67400554817 /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6D808B9F23E9EFD800554817 /* Helpers+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6D808BA023E9EFFA00554817 /* HypeError.swift */,
+			);
+			path = "Helpers+Extensions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,7 +222,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D808BA123E9EFFA00554817 /* HypeError.swift in Sources */,
 				6D808B7D23E9E03300554817 /* AppDelegate.swift in Sources */,
+				6D808B9E23E9EEB000554817 /* HypeController.swift in Sources */,
 				6D808B7F23E9E03300554817 /* SceneDelegate.swift in Sources */,
 				6D808B9C23E9E6D200554817 /* Hype.swift in Sources */,
 			);
