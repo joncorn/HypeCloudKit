@@ -53,7 +53,8 @@ class HypeController {
             
             // converting records to hype objects
             let hypes = records.compactMap( {Hype(ckRecord: $0)})
-            completion(.success(hypes))
+            
+            return completion(.success(hypes))
         }
     }
 }
