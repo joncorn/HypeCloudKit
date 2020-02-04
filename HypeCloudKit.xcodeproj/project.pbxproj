@@ -12,6 +12,8 @@
 		6D808B8423E9E03300554817 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D808B8223E9E03300554817 /* Main.storyboard */; };
 		6D808B8623E9E03500554817 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D808B8523E9E03500554817 /* Assets.xcassets */; };
 		6D808B8923E9E03500554817 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D808B8723E9E03500554817 /* LaunchScreen.storyboard */; };
+		6D808B9A23E9E67400554817 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D808B9923E9E67400554817 /* CloudKit.framework */; };
+		6D808B9C23E9E6D200554817 /* Hype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D808B9B23E9E6D200554817 /* Hype.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,9 @@
 		6D808B8523E9E03500554817 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D808B8823E9E03500554817 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6D808B8A23E9E03500554817 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D808B9723E9E64D00554817 /* HypeCloudKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HypeCloudKit.entitlements; sourceTree = "<group>"; };
+		6D808B9923E9E67400554817 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		6D808B9B23E9E6D200554817 /* Hype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hype.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D808B9A23E9E67400554817 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +46,7 @@
 			children = (
 				6D808B7B23E9E03300554817 /* HypeCloudKit */,
 				6D808B7A23E9E03300554817 /* Products */,
+				6D808B9823E9E67400554817 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +61,7 @@
 		6D808B7B23E9E03300554817 /* HypeCloudKit */ = {
 			isa = PBXGroup;
 			children = (
+				6D808B9723E9E64D00554817 /* HypeCloudKit.entitlements */,
 				6D808B9123E9E39400554817 /* Storyboards */,
 				6D808B9223E9E39C00554817 /* Models */,
 				6D808B9323E9E3A400554817 /* Views */,
@@ -86,6 +94,7 @@
 		6D808B9223E9E39C00554817 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6D808B9B23E9E6D200554817 /* Hype.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -118,6 +127,14 @@
 			children = (
 			);
 			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		6D808B9823E9E67400554817 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6D808B9923E9E67400554817 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +210,7 @@
 			files = (
 				6D808B7D23E9E03300554817 /* AppDelegate.swift in Sources */,
 				6D808B7F23E9E03300554817 /* SceneDelegate.swift in Sources */,
+				6D808B9C23E9E6D200554817 /* Hype.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,7 +354,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HypeCloudKit/HypeCloudKit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = HypeCloudKit/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -353,6 +373,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HypeCloudKit/HypeCloudKit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = HypeCloudKit/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
