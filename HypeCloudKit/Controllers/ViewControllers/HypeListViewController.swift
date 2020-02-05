@@ -22,7 +22,7 @@ class HypeListViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func composeButtonTapped(_ sender: Any) {
-        presentAddHypeAlert()
+        presentAddHypeAlert(for: nil)
     }
     
     // MARK: - Methods
