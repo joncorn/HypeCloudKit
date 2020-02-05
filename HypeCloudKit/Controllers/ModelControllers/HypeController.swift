@@ -80,8 +80,22 @@ class HypeController {
         publicDB.add(operation)
     }
     
-    func delete(_ hype: Hype, completion: @escaping (Result<Hype?, HypeError>) -> Void) {
-        let record = CKRecord(hype: hype)
-        let operation = CKModifyRecordsOperation(reco)
+    func delete(_ hype: Hype, completion: @escaping (Result<Bool, HypeError>) -> Void) {
+        let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [hype.recordID])
+        operation.savePolicy = .changedKeys
+        operation.qualityOfService = .userInteractive
+        operation.modifyRecordsCompletionBlock = { records, _, error in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                completion(.failure(.ckError(error)))
+            }
+            
+            if records?.count == 0 {
+                completion(.success(true))
+            } else {
+                return completion(.failure(.unexpectedRecordsFound))
+            }
+        }
+        publicDB.add(operation)
     }
 }
