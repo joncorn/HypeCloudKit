@@ -57,4 +57,31 @@ class HypeController {
             return completion(.success(hypes))
         }
     }
+    
+    func update(_ hype: Hype, completion: @escaping (Result<Hype?, HypeError>) -> Void) {
+        // create a ckrecord from the passed in hype
+        let record = CKRecord(hype: hype)
+        // Create an operation
+        let operation = CKModifyRecordsOperation(recordsToSave: [record], recordIDsToDelete: nil)
+        // when you're saving things only save things that have changed
+        operation.savePolicy = .changedKeys
+        operation.qualityOfService = .userInteractive
+        operation.modifyRecordsCompletionBlock = { records, _, error in
+            // handle error
+            if let error = error {
+                return completion(.failure(.ckError(error)))
+            }
+            // handle records
+            guard let record = records?.first,
+                let updatedHype = Hype(ckRecord: record)
+                else {return completion(.failure(.couldNotUnwrap))}
+            completion(.success(updatedHype))
+        }
+        publicDB.add(operation)
+    }
+    
+    func delete(_ hype: Hype, completion: @escaping (Result<Hype?, HypeError>) -> Void) {
+        let record = CKRecord(hype: hype)
+        let operation = CKModifyRecordsOperation(reco)
+    }
 }
