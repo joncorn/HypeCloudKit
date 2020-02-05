@@ -63,6 +63,11 @@ extension HypeListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.detailTextLabel?.text = hype.timestamp.formatToString()
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let hype = HypeController.shared.hypes[indexPath.row]
+        presentAddHypeAlert(for: hype)
+    }
 }
 
 // MARK: - AlertController ext
