@@ -82,15 +82,16 @@ extension HypeListViewController {
                 HypeController.shared.update(hype) { (result) in
                     self.updateViews()
                 }
-            }
-            HypeController.shared.saveHype(with: text) { (result) in
-                switch result {
-                case .success(let hype):
-                    guard let hype = hype else {return}
-                    HypeController.shared.hypes.insert(hype, at: 0)
-                    self.updateViews()
-                case .failure(let error):
-                    print(error.errorDescription ?? error)
+            } else {
+                HypeController.shared.saveHype(with: text) { (result) in
+                    switch result {
+                    case .success(let hype):
+                        guard let hype = hype else {return}
+                        HypeController.shared.hypes.insert(hype, at: 0)
+                        self.updateViews()
+                    case .failure(let error):
+                        print(error.errorDescription ?? error)
+                    }
                 }
             }
         }
