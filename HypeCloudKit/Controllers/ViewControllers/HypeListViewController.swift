@@ -68,6 +68,26 @@ extension HypeListViewController: UITableViewDelegate, UITableViewDataSource {
         let hype = HypeController.shared.hypes[indexPath.row]
         presentAddHypeAlert(for: hype)
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let hypeToDelete = HypeController.shared.hypes[indexPath.row]
+            guard let index = HypeController.shared.hypes.firstIndex(of: hypeToDelete) else {return}
+            HypeController.shared.delete(hypeToDelete) { (result) in
+                switch result {
+                case .success(let success):
+                    if success {
+                        HypeController.shared.hypes.remove(at: index)
+                        DispatchQueue.main.async {
+                            tableView.deleteRows(at: [indexPath], with: .fade)
+                        }
+                    }
+                case .failure(let error):
+                    print(error.errorDescription ?? error.localizedDescription)
+                }
+            }
+        }
+    }
 }
 
 // MARK: - AlertController ext
